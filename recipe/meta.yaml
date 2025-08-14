@@ -1,5 +1,5 @@
 {% set name = "opentelemetry-instrumentation-transformers" %}
-{% set version = "0.45.1" %}
+{% set version = "0.45.4" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/opentelemetry_instrumentation_transformers-{{ version }}.tar.gz
-  sha256: bcd76480008ebe31bcc6ee2acd8318e7a833a4d9040a88d4d63031ee3558b8fe
+  sha256: d921605ffcedf8f35437921de56f84c42635248f17b50e7cf44ddbe85e5dfe0d
 
 build:
   noarch: python
@@ -24,7 +24,7 @@ requirements:
     - opentelemetry-api >=1.28.0,<2.0.0
     - opentelemetry-instrumentation >=0.50b0
     - opentelemetry-semantic-conventions >=0.50b0
-    - opentelemetry-semantic-conventions-ai 0.4.11
+    - opentelemetry-semantic-conventions-ai >=0.4.12,<0.5.0
   run_constrained:
     - transformers >=4.0
 
