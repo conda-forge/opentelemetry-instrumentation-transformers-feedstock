@@ -1,5 +1,5 @@
 {% set name = "opentelemetry-instrumentation-transformers" %}
-{% set version = "0.51.0" %}
+{% set version = "0.51.1" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/opentelemetry_instrumentation_transformers-{{ version }}.tar.gz
-  sha256: d173fdd1538801c27aec111009eaebe11b81454bcc1fb45adc1e79dd51b48661
+  sha256: 5172bcbedafba87169874edad0b3863d5e3c342b649e0c855ad69ebcea09f36d
 
 build:
   noarch: python
