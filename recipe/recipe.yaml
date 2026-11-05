@@ -1,0 +1,55 @@
+schema_version: 1
+
+context:
+  name: opentelemetry-instrumentation-transformers
+  version: "0.63.0"
+
+package:
+  name: ${{ name|lower }}
+  version: ${{ version }}
+
+source:
+  url: https://files.pythonhosted.org/packages/source/${{ name[0] }}/${{ name }}/opentelemetry_instrumentation_transformers-${{ version }}.tar.gz
+  sha256: 58afedf468e95041f5c7ceaf61cab91a2a46c019d2336c995c97466a2371902b
+
+build:
+  number: 1
+  noarch: python
+  script: ${{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
+
+requirements:
+  host:
+    - python ${{ python_min }}.*
+    - hatchling
+    - pip
+  run:
+    - python >=${{ python_min }}
+    - opentelemetry-sdk >=1.38.0,<2.0.0
+    - opentelemetry-api >=1.38.0,<2.0.0
+    - opentelemetry-instrumentation >=0.59b0
+    - opentelemetry-semantic-conventions >=0.59b0
+    - opentelemetry-semantic-conventions-ai >=0.5.1,<0.6.0
+  run_constraints:
+    - transformers >=4.51.3
+
+tests:
+  - requirements:
+      run:
+        - python ${{ python_min }}.*
+        - pip
+        - transformers
+    script:
+      - python -c "import opentelemetry.instrumentation.transformers"
+      - python -m pip check
+
+about:
+  summary: OpenTelemetry transformers instrumentation
+  license: Apache-2.0
+  license_file: LICENSE
+  homepage: https://www.traceloop.com/openllmetry
+  repository: https://github.com/traceloop/openllmetry
+  documentation: https://www.traceloop.com/docs/openllmetry/introduction
+
+extra:
+  recipe-maintainers:
+    - timkpaine
