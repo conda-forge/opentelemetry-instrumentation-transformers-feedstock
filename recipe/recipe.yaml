@@ -2,7 +2,7 @@ schema_version: 1
 
 context:
   name: opentelemetry-instrumentation-transformers
-  version: "0.63.0"
+  version: "0.63.1"
 
 package:
   name: ${{ name|lower }}
@@ -10,10 +10,10 @@ package:
 
 source:
   url: https://files.pythonhosted.org/packages/source/${{ name[0] }}/${{ name }}/opentelemetry_instrumentation_transformers-${{ version }}.tar.gz
-  sha256: 58afedf468e95041f5c7ceaf61cab91a2a46c019d2336c995c97466a2371902b
+  sha256: 95e5fe59993873f9750af8c0d581f386ff908762c5fbfcbd36f5465468ece1ae
 
 build:
-  number: 1
+  number: 0
   noarch: python
   script: ${{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
 
